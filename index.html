@@ -1,88 +1,92 @@
+```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PLAN LEKCJI 4Ti</title>
+<title>PLAN 4Ti | realmyszon</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap');
 
 :root {
-    --neon: #00f7ff;
-    --neon2: #008cff;
-    --bg: #05060d;
-    --panel: rgba(10,14,30,.86);
-    --border: rgba(0,247,255,.3);
+    --neon:#00f7ff;
+    --neon2:#008cff;
+    --bg:#05060d;
+    --panel:rgba(10,14,30,.88);
+    --border:rgba(0,247,255,.3);
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Orbitron, Arial, sans-serif;
-    color: white;
+    margin:0;
+    min-height:100vh;
+    font-family:Orbitron,Arial,sans-serif;
+    color:white;
     background:
-        radial-gradient(circle at 20% 10%, rgba(0,247,255,.12), transparent 30%),
-        radial-gradient(circle at 80% 90%, rgba(0,100,255,.12), transparent 30%),
+        radial-gradient(circle at 20% 10%,rgba(0,247,255,.13),transparent 30%),
+        radial-gradient(circle at 80% 90%,rgba(0,100,255,.13),transparent 30%),
         var(--bg);
-    overflow-x: hidden;
+    overflow-x:hidden;
 }
 
-/* ANIMOWANE TŁO */
+/* TŁO */
 
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+
     background:
-        linear-gradient(90deg, transparent 49%, rgba(255,255,255,.025) 50%, transparent 51%),
-        linear-gradient(transparent 49%, rgba(255,255,255,.025) 50%, transparent 51%);
-    background-size: 55px 55px;
-    animation: gridMove 8s linear infinite;
+        linear-gradient(90deg,transparent 49%,rgba(255,255,255,.025) 50%,transparent 51%),
+        linear-gradient(transparent 49%,rgba(255,255,255,.025) 50%,transparent 51%);
+
+    background-size:55px 55px;
+    animation:gridMove 8s linear infinite;
 }
 
 body::after {
-    content: "";
-    position: fixed;
-    width: 500px;
-    height: 500px;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%,-50%);
-    background: var(--neon);
-    filter: blur(180px);
-    opacity: .08;
-    z-index: -1;
-    animation: glow 4s ease-in-out infinite alternate;
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    left:50%;
+    top:40%;
+    transform:translate(-50%,-50%);
+    background:var(--neon);
+    filter:blur(180px);
+    opacity:.08;
+    z-index:-1;
+    animation:glow 4s ease-in-out infinite alternate;
 }
 
 @keyframes gridMove {
-    from { background-position: 0 0; }
-    to { background-position: 55px 55px; }
+    from {background-position:0 0;}
+    to {background-position:55px 55px;}
 }
 
 @keyframes glow {
-    from { opacity: .04; }
-    to { opacity: .12; }
+    from {opacity:.04;}
+    to {opacity:.12;}
 }
 
 /* HEADER */
 
 header {
-    text-align: center;
-    padding: 40px 15px 25px;
+    text-align:center;
+    padding:45px 15px 25px;
 }
 
 .logo {
-    font-size: 45px;
-    font-weight: 800;
-    color: var(--neon);
+    font-size:48px;
+    font-weight:800;
+    color:var(--neon);
+
     text-shadow:
         0 0 5px var(--neon),
         0 0 20px var(--neon),
@@ -90,264 +94,314 @@ header {
 }
 
 .subtitle {
-    margin-top: 10px;
-    color: #7e87aa;
-    letter-spacing: 3px;
+    margin-top:10px;
+    color:#7e87aa;
+    letter-spacing:4px;
+    font-size:13px;
 }
 
-/* GŁÓWNY PANEL */
+/* ZAKŁADKI */
+
+.tabs {
+    width:94%;
+    max-width:1200px;
+    margin:0 auto 20px;
+
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.tab {
+    padding:14px 24px;
+
+    background:#0b1022;
+    color:#777fa2;
+
+    border:1px solid #252c52;
+    border-radius:12px;
+
+    font-family:Orbitron,Arial,sans-serif;
+    font-weight:700;
+
+    cursor:pointer;
+    transition:.25s;
+}
+
+.tab:hover {
+    color:var(--neon);
+    border-color:var(--neon);
+    box-shadow:0 0 15px rgba(0,247,255,.3);
+    transform:translateY(-2px);
+}
+
+.tab.active {
+    color:var(--neon);
+    border-color:var(--neon);
+
+    box-shadow:
+        0 0 10px var(--neon),
+        0 0 25px rgba(0,247,255,.2);
+}
+
+/* CONTENT */
+
+.tab-content {
+    display:none;
+}
+
+.tab-content.active {
+    display:block;
+}
+
+/* PANEL */
 
 .container {
-    width: 94%;
-    max-width: 1200px;
-    margin: auto;
+    width:94%;
+    max-width:1200px;
+    margin:auto;
 }
 
-.panel {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 25px;
-    box-shadow: 0 0 40px rgba(0,247,255,.08);
-    backdrop-filter: blur(15px);
+.panel,
+.extra-panel {
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:25px;
+
+    box-shadow:0 0 40px rgba(0,247,255,.08);
+
+    backdrop-filter:blur(15px);
 }
 
-/* GÓRA */
+/* TOP */
 
 .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
 }
 
 .date {
-    color: #8992b7;
-}
-
-.settings {
-    border: 1px solid var(--border);
-    background: #0c1022;
-    color: var(--neon);
-    padding: 10px 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 20px;
+    color:#8992b7;
+    font-size:13px;
 }
 
 /* DNI */
 
 .days {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 10px;
-    margin-bottom: 20px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-bottom:20px;
 }
 
 .day {
-    padding: 15px 5px;
-    background: #0c1022;
-    border: 1px solid #22294a;
-    border-radius: 12px;
-    cursor: pointer;
-    text-align: center;
-    transition: .2s;
+    padding:15px 5px;
+
+    background:#0c1022;
+
+    border:1px solid #22294a;
+    border-radius:12px;
+
+    cursor:pointer;
+    text-align:center;
+
+    transition:.2s;
 }
 
 .day:hover,
 .day.active {
-    color: var(--neon);
-    border-color: var(--neon);
-    box-shadow: 0 0 18px rgba(0,247,255,.25);
+    color:var(--neon);
+    border-color:var(--neon);
+
+    box-shadow:
+        0 0 18px rgba(0,247,255,.25);
 }
 
 /* LEKCJE */
 
 .schedule {
-    display: grid;
-    gap: 12px;
+    display:grid;
+    gap:12px;
 }
 
 .lesson {
-    display: grid;
-    grid-template-columns: 110px 1fr 100px;
-    align-items: center;
-    padding: 18px;
-    background: linear-gradient(90deg,#0d1228,#080b18);
-    border: 1px solid #202747;
-    border-radius: 14px;
-    transition: .2s;
+    display:grid;
+    grid-template-columns:110px 1fr 100px;
+
+    align-items:center;
+
+    padding:18px;
+
+    background:linear-gradient(90deg,#0d1228,#080b18);
+
+    border:1px solid #202747;
+    border-radius:14px;
+
+    transition:.2s;
 }
 
 .lesson:hover {
-    transform: translateX(5px);
-    border-color: var(--neon);
-    box-shadow: 0 0 20px rgba(0,247,255,.15);
+    transform:translateX(5px);
+
+    border-color:var(--neon);
+
+    box-shadow:
+        0 0 20px rgba(0,247,255,.15);
 }
 
 .lesson.current {
-    border-color: var(--neon);
+    border-color:var(--neon);
+
     box-shadow:
         0 0 10px var(--neon),
-        0 0 30px rgba(0,247,255,.2);
+        0 0 30px rgba(0,247,255,.3);
 }
 
 .time {
-    color: var(--neon);
+    color:var(--neon);
 }
 
 .subject {
-    font-size: 18px;
-    font-weight: bold;
+    font-size:18px;
+    font-weight:bold;
 }
 
 .room {
-    text-align: right;
-    color: #777fa2;
+    text-align:right;
+    color:#777fa2;
 }
 
 /* INFO */
 
 .info {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 12px;
+    margin-top:20px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
 }
 
 .info-box {
-    padding: 18px;
-    border-radius: 14px;
-    background: #0b0f20;
-    border: 1px solid #202747;
+    padding:18px;
+
+    border-radius:14px;
+
+    background:#0b0f20;
+
+    border:1px solid #202747;
 }
 
 .info-title {
-    font-size: 11px;
-    color: #777fa2;
-    margin-bottom: 8px;
+    font-size:10px;
+    color:#777fa2;
+    margin-bottom:8px;
 }
 
 .info-value {
-    color: var(--neon);
-    font-size: 20px;
+    color:var(--neon);
+    font-size:20px;
 }
 
-/* MODAL */
+/* PRZEDMIOTY */
 
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.75);
-    backdrop-filter: blur(8px);
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+.extra-panel {
+    width:94%;
+    max-width:1200px;
+    margin:auto;
 }
 
-.modal.show {
-    display: flex;
+.extra-panel h2 {
+    color:var(--neon);
+
+    text-shadow:
+        0 0 10px var(--neon);
 }
 
-.modal-box {
-    width: 92%;
-    max-width: 700px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 25px;
-    background: #0a0e1e;
-    border: 1px solid var(--neon);
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(0,247,255,.25);
+.subject-grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:25px;
 }
 
-.modal-box h2 {
-    color: var(--neon);
+.subject-card {
+    padding:22px;
+
+    background:#0c1125;
+
+    border:1px solid #252c52;
+    border-radius:14px;
+
+    transition:.25s;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 8px;
+.subject-card:hover {
+    transform:translateY(-5px);
+
+    color:var(--neon);
+    border-color:var(--neon);
+
+    box-shadow:
+        0 0 20px rgba(0,247,255,.2);
 }
 
-input, select {
-    width: 100%;
-    padding: 12px;
-    background: #11162b;
-    color: white;
-    border: 1px solid #293255;
-    border-radius: 8px;
+/* FOOTER */
+
+footer {
+    text-align:center;
+    padding:30px;
+
+    color:#555d7d;
+    font-size:11px;
 }
 
-.btn {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 9px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
+footer span {
+    color:var(--neon);
 }
-
-.save {
-    background: var(--neon);
-    color: #001014;
-}
-
-.close {
-    background: #252b45;
-    color: white;
-}
-
-.colors {
-    display: flex;
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.color {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid white;
-}
-
-.cyan { background:#00f7ff; }
-.purple { background:#b000ff; }
-.green { background:#00ff88; }
-.red { background:#ff1744; }
-.yellow { background:#ffe600; }
 
 /* MOBILE */
 
 @media(max-width:700px) {
 
     .logo {
-        font-size: 30px;
+        font-size:31px;
+    }
+
+    .subtitle {
+        font-size:9px;
+    }
+
+    .tabs {
+        flex-direction:column;
+    }
+
+    .tab {
+        width:100%;
     }
 
     .days {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
     }
 
     .lesson {
-        grid-template-columns: 1fr;
-        gap: 7px;
+        grid-template-columns:1fr;
+        gap:7px;
     }
 
     .room {
-        text-align: left;
+        text-align:left;
     }
 
     .info {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    .subject-grid {
+        grid-template-columns:1fr;
     }
 }
 </style>
@@ -357,13 +411,48 @@ input, select {
 
 <header>
 
-    <div class="logo">PLAN 4Ti</div>
+    <div class="logo">
+        ⚡ PLAN 4Ti
+    </div>
 
     <div class="subtitle">
-        by realmyszon
+        GAMING SCHOOL SCHEDULE • BY REALMYSZON
     </div>
 
 </header>
+
+
+<!-- ZAKŁADKI -->
+
+<div class="tabs">
+
+    <button
+        class="tab active"
+        onclick="showTab('plan',this)"
+    >
+        🏠 PLAN 4Ti
+    </button>
+
+    <button
+        class="tab"
+        onclick="showTab('subjects',this)"
+    >
+        📚 PRZEDMIOTY
+    </button>
+
+    <button
+        class="tab"
+        onclick="showTab('information',this)"
+    >
+        ℹ️ INFORMACJE
+    </button>
+
+</div>
+
+
+<!-- PLAN -->
+
+<div id="plan" class="tab-content active">
 
 <div class="container">
 
@@ -373,37 +462,134 @@ input, select {
 
         <div class="date" id="today"></div>
 
-        <button class="settings" onclick="openSettings()">⚙️</button>
-
     </div>
+
 
     <div class="days">
 
-        <div class="day active" onclick="selectDay(0)">PON</div>
-        <div class="day" onclick="selectDay(1)">WT</div>
-        <div class="day" onclick="selectDay(2)">ŚR</div>
-        <div class="day" onclick="selectDay(3)">CZW</div>
-        <div class="day" onclick="selectDay(4)">PT</div>
+        <div class="day active" onclick="selectDay(0)">
+            PON
+        </div>
+
+        <div class="day" onclick="selectDay(1)">
+            WT
+        </div>
+
+        <div class="day" onclick="selectDay(2)">
+            ŚR
+        </div>
+
+        <div class="day" onclick="selectDay(3)">
+            CZW
+        </div>
+
+        <div class="day" onclick="selectDay(4)">
+            PT
+        </div>
 
     </div>
 
+
     <div id="schedule" class="schedule"></div>
+
 
     <div class="info">
 
         <div class="info-box">
-            <div class="info-title">AKTUALNA LEKCJA</div>
-            <div class="info-value" id="current">—</div>
+
+            <div class="info-title">
+                AKTUALNA LEKCJA
+            </div>
+
+            <div class="info-value" id="current">
+                —
+            </div>
+
         </div>
 
-        <div class="info-box">
-            <div class="info-title">NASTĘPNA LEKCJA</div>
-            <div class="info-value" id="next">—</div>
-        </div>
 
         <div class="info-box">
-            <div class="info-title">DO KOŃCA</div>
-            <div class="info-value" id="timer">—</div>
+
+            <div class="info-title">
+                NASTĘPNA LEKCJA
+            </div>
+
+            <div class="info-value" id="next">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div class="info-title">
+                DO KOŃCA LEKCJI
+            </div>
+
+            <div class="info-value" id="timer">
+                —
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRZEDMIOTY -->
+
+<div id="subjects" class="tab-content">
+
+<div class="extra-panel">
+
+    <h2>📚 PRZEDMIOTY 4Ti</h2>
+
+    <p style="color:#777fa2;">
+        Przedmioty znajdujące się w planie.
+    </p>
+
+    <div class="subject-grid">
+
+        <div class="subject-card">
+            💻 Informatyka
+        </div>
+
+        <div class="subject-card">
+            ⌨️ Programowanie
+        </div>
+
+        <div class="subject-card">
+            🌐 Sieci komputerowe
+        </div>
+
+        <div class="subject-card">
+            ⚙️ Systemy operacyjne
+        </div>
+
+        <div class="subject-card">
+            📐 Matematyka
+        </div>
+
+        <div class="subject-card">
+            🇬🇧 Język angielski
+        </div>
+
+        <div class="subject-card">
+            📖 Język polski
+        </div>
+
+        <div class="subject-card">
+            🏋️ Wychowanie fizyczne
+        </div>
+
+        <div class="subject-card">
+            📜 Historia
         </div>
 
     </div>
@@ -413,88 +599,210 @@ input, select {
 </div>
 
 
-<!-- PANEL USTAWIEŃ -->
+<!-- INFORMACJE -->
 
-<div id="modal" class="modal">
+<div id="information" class="tab-content">
 
-<div class="modal-box">
+<div class="extra-panel">
 
-    <h2>⚙️ EDYCJA PLANU</h2>
+    <h2>ℹ️ INFORMACJE</h2>
 
-    <p>Wybierz dzień:</p>
+    <p>🎓 <b>Klasa:</b> 4Ti</p>
 
-    <select id="editDay" onchange="loadEditor()">
-        <option value="0">Poniedziałek</option>
-        <option value="1">Wtorek</option>
-        <option value="2">Środa</option>
-        <option value="3">Czwartek</option>
-        <option value="4">Piątek</option>
-    </select>
+    <p>⚡ <b>Typ strony:</b> Plan lekcji</p>
 
-    <div id="editor"></div>
+    <p>🎮 <b>Styl:</b> Gaming / Neon</p>
 
-    <button class="btn save" onclick="saveDay()">💾 ZAPISZ PLAN</button>
+    <p>👨‍💻 <b>Autor:</b> realmyszon</p>
 
-    <h3>🎨 Kolor neonów</h3>
+    <p>🌐 <b>Hosting:</b> GitHub Pages</p>
 
-    <div class="colors">
+    <br>
 
-        <div class="color cyan" onclick="setColor('#00f7ff','#008cff')"></div>
-        <div class="color purple" onclick="setColor('#b000ff','#6500ff')"></div>
-        <div class="color green" onclick="setColor('#00ff88','#00aa66')"></div>
-        <div class="color red" onclick="setColor('#ff1744','#aa0022')"></div>
-        <div class="color yellow" onclick="setColor('#ffe600','#ff9900')"></div>
-
-    </div>
-
-    <button class="btn close" onclick="closeSettings()">ZAMKNIJ</button>
+    <p style="color:#777fa2;">
+        Nowoczesny gamingowy plan lekcji
+        dla klasy 4Ti.
+    </p>
 
 </div>
 
 </div>
+
+
+<footer>
+
+    PLAN 4Ti ⚡
+    <br>
+    <span>by realmyszon</span>
+
+</footer>
 
 
 <script>
 
-/* DOMYŚLNY PLAN */
+/* PLAN LEKCJI */
 
-let plan = JSON.parse(localStorage.getItem("myPlan")) || [
+const plan = [
 
-[
- {subject:"Informatyka",time:"08:00",end:"08:45",room:"204"},
- {subject:"Matematyka",time:"08:50",end:"09:35",room:"112"},
- {subject:"Programowanie",time:"09:45",end:"10:30",room:"204"},
- {subject:"Angielski",time:"10:40",end:"11:25",room:"301"},
- {subject:"Sieci komputerowe",time:"11:35",end:"12:20",room:"204"}
-],
+    /* PONIEDZIAŁEK */
 
-[
- {subject:"Polski",time:"08:00",end:"08:45",room:"105"},
- {subject:"Matematyka",time:"08:50",end:"09:35",room:"112"},
- {subject:"Systemy operacyjne",time:"09:45",end:"10:30",room:"204"},
- {subject:"Angielski",time:"10:40",end:"11:25",room:"301"}
-],
+    [
+        {
+            subject:"Informatyka",
+            time:"08:00",
+            end:"08:45",
+            room:"204"
+        },
 
-[
- {subject:"Programowanie",time:"08:00",end:"08:45",room:"204"},
- {subject:"Historia",time:"08:50",end:"09:35",room:"108"},
- {subject:"Matematyka",time:"09:45",end:"10:30",room:"112"},
- {subject:"WF",time:"10:40",end:"11:25",room:"HALA"}
-],
+        {
+            subject:"Matematyka",
+            time:"08:50",
+            end:"09:35",
+            room:"112"
+        },
 
-[
- {subject:"Sieci komputerowe",time:"08:00",end:"08:45",room:"204"},
- {subject:"Angielski",time:"08:50",end:"09:35",room:"301"},
- {subject:"Programowanie",time:"09:45",end:"10:30",room:"204"}
-],
+        {
+            subject:"Programowanie",
+            time:"09:45",
+            end:"10:30",
+            room:"204"
+        },
 
-[
- {subject:"Matematyka",time:"08:00",end:"08:45",room:"112"},
- {subject:"Informatyka",time:"08:50",end:"09:35",room:"204"},
- {subject:"WF",time:"09:45",end:"10:30",room:"HALA"}
-]
+        {
+            subject:"Język angielski",
+            time:"10:40",
+            end:"11:25",
+            room:"301"
+        },
+
+        {
+            subject:"Sieci komputerowe",
+            time:"11:35",
+            end:"12:20",
+            room:"204"
+        }
+    ],
+
+
+    /* WTOREK */
+
+    [
+        {
+            subject:"Język polski",
+            time:"08:00",
+            end:"08:45",
+            room:"105"
+        },
+
+        {
+            subject:"Matematyka",
+            time:"08:50",
+            end:"09:35",
+            room:"112"
+        },
+
+        {
+            subject:"Systemy operacyjne",
+            time:"09:45",
+            end:"10:30",
+            room:"204"
+        },
+
+        {
+            subject:"Język angielski",
+            time:"10:40",
+            end:"11:25",
+            room:"301"
+        }
+    ],
+
+
+    /* ŚRODA */
+
+    [
+        {
+            subject:"Programowanie",
+            time:"08:00",
+            end:"08:45",
+            room:"204"
+        },
+
+        {
+            subject:"Historia",
+            time:"08:50",
+            end:"09:35",
+            room:"108"
+        },
+
+        {
+            subject:"Matematyka",
+            time:"09:45",
+            end:"10:30",
+            room:"112"
+        },
+
+        {
+            subject:"WF",
+            time:"10:40",
+            end:"11:25",
+            room:"HALA"
+        }
+    ],
+
+
+    /* CZWARTEK */
+
+    [
+        {
+            subject:"Sieci komputerowe",
+            time:"08:00",
+            end:"08:45",
+            room:"204"
+        },
+
+        {
+            subject:"Język angielski",
+            time:"08:50",
+            end:"09:35",
+            room:"301"
+        },
+
+        {
+            subject:"Programowanie",
+            time:"09:45",
+            end:"10:30",
+            room:"204"
+        }
+    ],
+
+
+    /* PIĄTEK */
+
+    [
+        {
+            subject:"Matematyka",
+            time:"08:00",
+            end:"08:45",
+            room:"112"
+        },
+
+        {
+            subject:"Informatyka",
+            time:"08:50",
+            end:"09:35",
+            room:"204"
+        },
+
+        {
+            subject:"WF",
+            time:"09:45",
+            end:"10:30",
+            room:"HALA"
+        }
+    ]
 
 ];
+
 
 let selectedDay = 0;
 
@@ -511,55 +819,113 @@ const names = [
     "Sobota"
 ];
 
+
 function updateDate() {
 
     const d = new Date();
 
     document.getElementById("today").textContent =
-        names[d.getDay()] + " • " +
-        d.toLocaleDateString("pl-PL");
+        names[d.getDay()]
+        + " • "
+        + d.toLocaleDateString("pl-PL");
 
 }
 
 
-/* PLAN */
+/* ZAKŁADKI */
+
+function showTab(tabName, button) {
+
+    document
+        .querySelectorAll(".tab-content")
+        .forEach(tab => {
+            tab.classList.remove("active");
+        });
+
+
+    document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
+            tab.classList.remove("active");
+        });
+
+
+    document
+        .getElementById(tabName)
+        .classList.add("active");
+
+
+    button.classList.add("active");
+
+}
+
+
+/* WYBÓR DNIA */
 
 function selectDay(day) {
 
     selectedDay = day;
 
-    document.querySelectorAll(".day").forEach((x,i) => {
-        x.classList.toggle("active", i === day);
-    });
+
+    document
+        .querySelectorAll(".day")
+        .forEach((x,i) => {
+
+            x.classList.toggle(
+                "active",
+                i === day
+            );
+
+        });
+
 
     render();
 
 }
 
 
+/* RENDER */
+
 function render() {
 
-    const box = document.getElementById("schedule");
+    const box =
+        document.getElementById("schedule");
 
     box.innerHTML = "";
 
-    plan[selectedDay].forEach((lesson,index) => {
 
-        const div = document.createElement("div");
+    plan[selectedDay].forEach(
+        (lesson,index) => {
 
-        div.className = "lesson";
+            const div =
+                document.createElement("div");
 
-        div.innerHTML = `
-            <div class="time">${lesson.time}</div>
-            <div class="subject">${lesson.subject}</div>
-            <div class="room">${lesson.room}</div>
-        `;
 
-        div.dataset.index = index;
+            div.className = "lesson";
 
-        box.appendChild(div);
 
-    });
+            div.innerHTML = `
+
+                <div class="time">
+                    ${lesson.time}
+                </div>
+
+                <div class="subject">
+                    ${lesson.subject}
+                </div>
+
+                <div class="room">
+                    SALA ${lesson.room}
+                </div>
+
+            `;
+
+
+            box.appendChild(div);
+
+        }
+    );
+
 
     updateCurrent();
 
@@ -576,215 +942,201 @@ function updateCurrent() {
 
     let currentIndex = -1;
 
+
     if(day >= 1 && day <= 5) {
 
-        const todayPlan = plan[day - 1];
+        const todayPlan =
+            plan[day - 1];
 
-        todayPlan.forEach((lesson,index) => {
 
-            const [sh,sm] = lesson.time.split(":").map(Number);
-            const [eh,em] = lesson.end.split(":").map(Number);
+        const currentMinutes =
+            now.getHours() * 60
+            +
+            now.getMinutes();
 
-            const start = sh * 60 + sm;
-            const end = eh * 60 + em;
 
-            const current =
-                now.getHours()*60 +
-                now.getMinutes();
+        todayPlan.forEach(
+            (lesson,index) => {
 
-            if(current >= start && current < end) {
-                currentIndex = index;
+                const [sh,sm] =
+                    lesson.time
+                    .split(":")
+                    .map(Number);
+
+
+                const [eh,em] =
+                    lesson.end
+                    .split(":")
+                    .map(Number);
+
+
+                const start =
+                    sh * 60 + sm;
+
+
+                const end =
+                    eh * 60 + em;
+
+
+                if(
+                    currentMinutes >= start
+                    &&
+                    currentMinutes < end
+                ) {
+
+                    currentIndex = index;
+
+                }
+
             }
+        );
 
-        });
 
         if(selectedDay === day - 1) {
 
-            document.querySelectorAll(".lesson").forEach((x,i) => {
-                x.classList.toggle("current", i === currentIndex);
-            });
+            document
+                .querySelectorAll(".lesson")
+                .forEach((x,i) => {
+
+                    x.classList.toggle(
+                        "current",
+                        i === currentIndex
+                    );
+
+                });
 
         }
+
 
         if(currentIndex >= 0) {
 
-            const lesson = todayPlan[currentIndex];
+            const lesson =
+                todayPlan[currentIndex];
 
-            document.getElementById("current").textContent =
+
+            document
+                .getElementById("current")
+                .textContent =
                 lesson.subject;
 
-            const next = todayPlan[currentIndex + 1];
 
-            document.getElementById("next").textContent =
-                next ? next.subject : "Koniec zajęć";
+            const next =
+                todayPlan[currentIndex + 1];
+
+
+            document
+                .getElementById("next")
+                .textContent =
+                next
+                ?
+                next.subject
+                :
+                "Koniec zajęć";
+
 
             updateTimer(lesson);
 
-        } else {
+        }
 
-            document.getElementById("current").textContent = "Brak lekcji";
+        else {
 
-            document.getElementById("next").textContent =
-                todayPlan[0]?.subject || "—";
+            document
+                .getElementById("current")
+                .textContent =
+                "Brak lekcji";
 
-            document.getElementById("timer").textContent = "—";
+
+            document
+                .getElementById("next")
+                .textContent =
+                todayPlan[0]
+                ?
+                todayPlan[0].subject
+                :
+                "—";
+
+
+            document
+                .getElementById("timer")
+                .textContent =
+                "—";
 
         }
 
-    } else {
+    }
 
-        document.getElementById("current").textContent = "Weekend";
-        document.getElementById("next").textContent = "—";
-        document.getElementById("timer").textContent = "—";
+    else {
+
+        document
+            .getElementById("current")
+            .textContent =
+            "Weekend";
+
+
+        document
+            .getElementById("next")
+            .textContent =
+            "—";
+
+
+        document
+            .getElementById("timer")
+            .textContent =
+            "—";
 
     }
 
 }
 
 
+/* TIMER */
+
 function updateTimer(lesson) {
 
     const now = new Date();
 
-    const [h,m] = lesson.end.split(":").map(Number);
+    const [h,m] =
+        lesson.end
+        .split(":")
+        .map(Number);
+
 
     const end = new Date();
 
-    end.setHours(h,m,0,0);
+    end.setHours(
+        h,
+        m,
+        0,
+        0
+    );
+
 
     let seconds =
-        Math.max(0, Math.floor((end-now)/1000));
+        Math.max(
+            0,
+            Math.floor(
+                (end - now) / 1000
+            )
+        );
 
-    const min = Math.floor(seconds/60);
 
-    const sec = seconds % 60;
+    const min =
+        Math.floor(seconds / 60);
 
-    document.getElementById("timer").textContent =
-        String(min).padStart(2,"0") + ":" +
+
+    const sec =
+        seconds % 60;
+
+
+    document
+        .getElementById("timer")
+        .textContent =
+
+        String(min).padStart(2,"0")
+        +
+        ":"
+        +
         String(sec).padStart(2,"0");
-
-}
-
-
-/* PANEL */
-
-function openSettings() {
-
-    document.getElementById("modal").classList.add("show");
-
-    loadEditor();
-
-}
-
-
-function closeSettings() {
-
-    document.getElementById("modal").classList.remove("show");
-
-}
-
-
-function loadEditor() {
-
-    const day = Number(document.getElementById("editDay").value);
-
-    const editor = document.getElementById("editor");
-
-    editor.innerHTML = "";
-
-    plan[day].forEach((lesson,index) => {
-
-        editor.innerHTML += `
-
-        <div class="form-row">
-
-            <input
-                id="subject${index}"
-                value="${lesson.subject}"
-                placeholder="Przedmiot">
-
-            <input
-                id="time${index}"
-                value="${lesson.time}"
-                type="time">
-
-            <input
-                id="end${index}"
-                value="${lesson.end}"
-                type="time">
-
-        </div>
-
-        `;
-
-    });
-
-}
-
-
-function saveDay() {
-
-    const day =
-        Number(document.getElementById("editDay").value);
-
-    plan[day].forEach((lesson,index) => {
-
-        lesson.subject =
-            document.getElementById("subject"+index).value;
-
-        lesson.time =
-            document.getElementById("time"+index).value;
-
-        lesson.end =
-            document.getElementById("end"+index).value;
-
-    });
-
-    localStorage.setItem(
-        "myPlan",
-        JSON.stringify(plan)
-    );
-
-    selectedDay = day;
-
-    selectDay(day);
-
-    alert("Plan zapisany! ⚡");
-
-}
-
-
-/* KOLOR */
-
-function setColor(color,color2) {
-
-    document.documentElement.style.setProperty(
-        "--neon",
-        color
-    );
-
-    document.documentElement.style.setProperty(
-        "--neon2",
-        color2
-    );
-
-    localStorage.setItem(
-        "neonColor",
-        color
-    );
-
-}
-
-
-const savedColor =
-    localStorage.getItem("neonColor");
-
-if(savedColor) {
-
-    document.documentElement.style.setProperty(
-        "--neon",
-        savedColor
-    );
 
 }
 
@@ -795,7 +1147,10 @@ updateDate();
 
 selectDay(0);
 
-setInterval(updateCurrent,1000);
+setInterval(
+    updateCurrent,
+    1000
+);
 
 </script>
 
