@@ -4,24 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>site by realmyszon</title>
+<title>PLAN 4Ti • realmyszon</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap');
 
-:root {
+:root{
     --neon:#00f7ff;
     --neon2:#008cff;
     --bg:#05060d;
-    --panel:rgba(10,14,30,.88);
+    --panel:rgba(10,14,30,.90);
     --border:rgba(0,247,255,.3);
 }
 
-* {
+*{
     box-sizing:border-box;
 }
 
-body {
+body{
     margin:0;
     min-height:100vh;
     font-family:Orbitron,Arial,sans-serif;
@@ -35,7 +35,7 @@ body {
 
 /* ANIMOWANA SIATKA */
 
-body::before {
+body::before{
     content:"";
     position:fixed;
     inset:0;
@@ -49,7 +49,7 @@ body::before {
     animation:gridMove 8s linear infinite;
 }
 
-body::after {
+body::after{
     content:"";
     position:fixed;
     width:500px;
@@ -64,35 +64,25 @@ body::after {
     animation:glow 4s ease-in-out infinite alternate;
 }
 
-@keyframes gridMove {
-    from {
-        background-position:0 0;
-    }
-
-    to {
-        background-position:55px 55px;
-    }
+@keyframes gridMove{
+    from{background-position:0 0}
+    to{background-position:55px 55px}
 }
 
-@keyframes glow {
-    from {
-        opacity:.04;
-    }
-
-    to {
-        opacity:.12;
-    }
+@keyframes glow{
+    from{opacity:.04}
+    to{opacity:.12}
 }
 
 
 /* HEADER */
 
-header {
+header{
     text-align:center;
-    padding:45px 15px 25px;
+    padding:40px 15px 25px;
 }
 
-.logo {
+.logo{
     font-size:48px;
     font-weight:800;
     color:var(--neon);
@@ -103,7 +93,7 @@ header {
         0 0 50px var(--neon2);
 }
 
-.subtitle {
+.subtitle{
     margin-top:10px;
     color:#7e87aa;
     letter-spacing:4px;
@@ -113,9 +103,9 @@ header {
 
 /* ZAKŁADKI */
 
-.tabs {
+.tabs{
     width:94%;
-    max-width:1200px;
+    max-width:1250px;
     margin:0 auto 20px;
 
     display:flex;
@@ -123,8 +113,8 @@ header {
     gap:10px;
 }
 
-.tab {
-    padding:14px 24px;
+.tab{
+    padding:14px 25px;
 
     background:#0b1022;
     color:#777fa2;
@@ -132,24 +122,15 @@ header {
     border:1px solid #252c52;
     border-radius:12px;
 
-    font-family:Orbitron,Arial,sans-serif;
+    font-family:Orbitron;
     font-weight:700;
 
     cursor:pointer;
     transition:.25s;
 }
 
-.tab:hover {
-    color:var(--neon);
-    border-color:var(--neon);
-
-    box-shadow:
-        0 0 15px rgba(0,247,255,.3);
-
-    transform:translateY(-2px);
-}
-
-.tab.active {
+.tab:hover,
+.tab.active{
     color:var(--neon);
     border-color:var(--neon);
 
@@ -161,25 +142,26 @@ header {
 
 /* ZAWARTOŚĆ */
 
-.tab-content {
+.tab-content{
     display:none;
 }
 
-.tab-content.active {
+.tab-content.active{
     display:block;
 }
 
 
 /* PANEL */
 
-.container {
+.container,
+.extra-panel{
     width:94%;
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
 }
 
 .panel,
-.extra-panel {
+.extra-panel{
     background:var(--panel);
 
     border:1px solid var(--border);
@@ -187,16 +169,15 @@ header {
 
     padding:25px;
 
-    box-shadow:
-        0 0 40px rgba(0,247,255,.08);
+    box-shadow:0 0 40px rgba(0,247,255,.08);
 
     backdrop-filter:blur(15px);
 }
 
 
-/* TOP */
+/* DATA */
 
-.topbar {
+.topbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -204,22 +185,18 @@ header {
     margin-bottom:20px;
 }
 
-.date {
+#today{
     color:#8992b7;
     font-size:13px;
 }
 
-#today {
-    font-size:13px;
-}
-
-#clock {
+#clock{
     margin-top:6px;
 
-    font-size:25px;
-    font-weight:700;
-
     color:var(--neon);
+
+    font-size:26px;
+    font-weight:700;
 
     text-shadow:
         0 0 5px var(--neon),
@@ -229,16 +206,15 @@ header {
 
 /* DNI */
 
-.days {
+.days{
     display:grid;
     grid-template-columns:repeat(5,1fr);
-
     gap:10px;
 
     margin-bottom:20px;
 }
 
-.day {
+.day{
     padding:15px 5px;
 
     background:#0c1022;
@@ -253,30 +229,29 @@ header {
 }
 
 .day:hover,
-.day.active {
+.day.active{
     color:var(--neon);
     border-color:var(--neon);
 
-    box-shadow:
-        0 0 18px rgba(0,247,255,.25);
+    box-shadow:0 0 18px rgba(0,247,255,.25);
 }
 
 
-/* LEKCJE */
+/* PLAN */
 
-.schedule {
+.schedule{
     display:grid;
-    gap:12px;
+    gap:10px;
 }
 
-.lesson {
+.lesson{
     display:grid;
 
-    grid-template-columns:110px 1fr 100px;
+    grid-template-columns:75px 125px 1fr 120px;
 
     align-items:center;
 
-    padding:18px;
+    padding:15px 18px;
 
     background:
         linear-gradient(
@@ -291,16 +266,15 @@ header {
     transition:.2s;
 }
 
-.lesson:hover {
+.lesson:hover{
     transform:translateX(5px);
 
     border-color:var(--neon);
 
-    box-shadow:
-        0 0 20px rgba(0,247,255,.15);
+    box-shadow:0 0 20px rgba(0,247,255,.15);
 }
 
-.lesson.current {
+.lesson.current{
     border-color:var(--neon);
 
     box-shadow:
@@ -308,35 +282,46 @@ header {
         0 0 30px rgba(0,247,255,.3);
 }
 
-.time {
-    color:var(--neon);
+.number{
+    color:#6d7699;
+    font-size:13px;
 }
 
-.subject {
-    font-size:18px;
+.time{
+    color:var(--neon);
+    font-size:14px;
+    font-weight:700;
+}
+
+.subject{
+    font-size:16px;
     font-weight:bold;
 }
 
-.room {
+.teacher{
+    color:#777fa2;
+    font-size:12px;
+}
+
+.room{
     text-align:right;
     color:#777fa2;
+    font-size:12px;
 }
 
 
 /* INFO */
 
-.info {
+.info{
     margin-top:20px;
 
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
     gap:12px;
 }
 
-.info-box {
+.info-box{
     padding:18px;
 
     border-radius:14px;
@@ -346,49 +331,38 @@ header {
     border:1px solid #202747;
 }
 
-.info-title {
+.info-title{
     font-size:10px;
-
     color:#777fa2;
-
     margin-bottom:8px;
 }
 
-.info-value {
+.info-value{
     color:var(--neon);
-
-    font-size:20px;
+    font-size:19px;
 }
 
 
 /* PRZEDMIOTY */
 
-.extra-panel {
-    width:94%;
-    max-width:1200px;
-
-    margin:auto;
-}
-
-.extra-panel h2 {
+.extra-panel h2{
     color:var(--neon);
 
     text-shadow:
         0 0 10px var(--neon);
 }
 
-.subject-grid {
+.subject-grid{
     display:grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:15px;
 
     margin-top:25px;
 }
 
-.subject-card {
+.subject-card{
     padding:22px;
 
     background:#0c1125;
@@ -400,79 +374,71 @@ header {
     transition:.25s;
 }
 
-.subject-card:hover {
+.subject-card:hover{
     transform:translateY(-5px);
 
     color:var(--neon);
 
     border-color:var(--neon);
 
-    box-shadow:
-        0 0 20px rgba(0,247,255,.2);
+    box-shadow:0 0 20px rgba(0,247,255,.2);
 }
 
 
 /* FOOTER */
 
-footer {
+footer{
     text-align:center;
-
     padding:30px;
 
     color:#555d7d;
-
     font-size:11px;
 }
 
-footer span {
+footer span{
     color:var(--neon);
 }
 
 
 /* MOBILE */
 
-@media(max-width:700px) {
+@media(max-width:800px){
 
-    .logo {
-        font-size:31px;
+    .logo{
+        font-size:32px;
     }
 
-    .subtitle {
-        font-size:9px;
-    }
-
-    .tabs {
+    .tabs{
         flex-direction:column;
     }
 
-    .tab {
+    .tab{
         width:100%;
     }
 
-    .days {
+    .days{
         grid-template-columns:1fr;
     }
 
-    .lesson {
+    .lesson{
         grid-template-columns:1fr;
-
         gap:7px;
     }
 
-    .room {
+    .room{
         text-align:left;
     }
 
-    .info {
+    .info{
         grid-template-columns:1fr;
     }
 
-    .subject-grid {
+    .subject-grid{
         grid-template-columns:1fr;
     }
 
-    #clock {
-        font-size:21px;
+    #clock{
+        font-size:22px;
     }
 }
 </style>
@@ -480,7 +446,6 @@ footer span {
 
 
 <body>
-
 
 <header>
 
@@ -499,24 +464,18 @@ footer span {
 
 <div class="tabs">
 
-    <button
-        class="tab active"
-        onclick="showTab('plan',this)"
-    >
+    <button class="tab active"
+            onclick="showTab('plan',this)">
         🏠 PLAN
     </button>
 
-    <button
-        class="tab"
-        onclick="showTab('subjects',this)"
-    >
+    <button class="tab"
+            onclick="showTab('subjects',this)">
         📚 PRZEDMIOTY
     </button>
 
-    <button
-        class="tab"
-        onclick="showTab('information',this)"
-    >
+    <button class="tab"
+            onclick="showTab('information',this)">
         ℹ️ INFO
     </button>
 
@@ -531,15 +490,12 @@ footer span {
 
 <div class="panel">
 
-
-    <!-- DATA + GODZINA -->
-
     <div class="topbar">
 
-        <div class="date">
+        <div>
 
             <div id="today">
-                Ładowanie daty...
+                Ładowanie...
             </div>
 
             <div id="clock">
@@ -555,50 +511,37 @@ footer span {
 
     <div class="days">
 
-        <div
-            class="day active"
-            onclick="selectDay(0)"
-        >
+        <div class="day active"
+             onclick="selectDay(0)">
             PON
         </div>
 
-        <div
-            class="day"
-            onclick="selectDay(1)"
-        >
+        <div class="day"
+             onclick="selectDay(1)">
             WT
         </div>
 
-        <div
-            class="day"
-            onclick="selectDay(2)"
-        >
+        <div class="day"
+             onclick="selectDay(2)">
             ŚR
         </div>
 
-        <div
-            class="day"
-            onclick="selectDay(3)"
-        >
+        <div class="day"
+             onclick="selectDay(3)">
             CZW
         </div>
 
-        <div
-            class="day"
-            onclick="selectDay(4)"
-        >
+        <div class="day"
+             onclick="selectDay(4)">
             PT
         </div>
 
     </div>
 
 
-    <!-- PLAN -->
-
-    <div
-        id="schedule"
-        class="schedule"
-    ></div>
+    <div id="schedule"
+         class="schedule">
+    </div>
 
 
     <!-- INFORMACJE -->
@@ -611,10 +554,8 @@ footer span {
                 AKTUALNA LEKCJA
             </div>
 
-            <div
-                class="info-value"
-                id="current"
-            >
+            <div class="info-value"
+                 id="current">
                 —
             </div>
 
@@ -627,10 +568,8 @@ footer span {
                 NASTĘPNA LEKCJA
             </div>
 
-            <div
-                class="info-value"
-                id="next"
-            >
+            <div class="info-value"
+                 id="next">
                 —
             </div>
 
@@ -640,20 +579,17 @@ footer span {
         <div class="info-box">
 
             <div class="info-title">
-                DO KOŃCA LEKCJI
+                DO KOŃCA
             </div>
 
-            <div
-                class="info-value"
-                id="timer"
-            >
+            <div class="info-value"
+                 id="timer">
                 —
             </div>
 
         </div>
 
     </div>
-
 
 </div>
 
@@ -664,19 +600,15 @@ footer span {
 
 <!-- ================= PRZEDMIOTY ================= -->
 
-<div
-    id="subjects"
-    class="tab-content"
->
+<div id="subjects"
+     class="tab-content">
 
 <div class="extra-panel">
 
-    <h2>
-        📚 PRZEDMIOTY 4Ti
-    </h2>
+    <h2>📚 PRZEDMIOTY 4Ti</h2>
 
     <p style="color:#777fa2;">
-        Wszystkie przedmioty, które mamy:
+        Przedmioty znajdujące się w planie:
     </p>
 
 
@@ -715,7 +647,27 @@ footer span {
         </div>
 
         <div class="subject-card">
+            🌍 Geografia
+        </div>
+
+        <div class="subject-card">
             📜 Historia
+        </div>
+
+        <div class="subject-card">
+            🧬 Biologia
+        </div>
+
+        <div class="subject-card">
+            ⚛️ Fizyka
+        </div>
+
+        <div class="subject-card">
+            👥 Edukacja obywatelska
+        </div>
+
+        <div class="subject-card">
+            🧠 Zajęcia wychowawcze
         </div>
 
     </div>
@@ -727,16 +679,12 @@ footer span {
 
 <!-- ================= INFO ================= -->
 
-<div
-    id="information"
-    class="tab-content"
->
+<div id="information"
+     class="tab-content">
 
 <div class="extra-panel">
 
-    <h2>
-        ℹ️ INFORMACJE
-    </h2>
+    <h2>ℹ️ INFORMACJE</h2>
 
     <p>
         🎓 <b>Klasa:</b> 4Ti
@@ -755,7 +703,7 @@ footer span {
     </p>
 
     <p>
-        🌐 <b>Hosting:</b> GitHub Pages & goodhostinG
+        🌐 <b>Hosting:</b> GitHub Pages
     </p>
 
     <br>
@@ -772,7 +720,6 @@ footer span {
 <footer>
 
     PLAN 4Ti ⚡
-
     <br>
 
     <span>
@@ -782,169 +729,248 @@ footer span {
 </footer>
 
 
+
 <script>
 
-
-/* ================= PLAN LEKCJI ================= */
+/* =========================================
+   PLAN LEKCJI
+========================================= */
 
 const plan = [
 
-    /* PONIEDZIAŁEK */
+/* PONIEDZIAŁEK */
 
-    [
-        {
-            subject:"Informatyka",
-            time:"08:00",
-            end:"08:45",
-            room:"204"
-        },
-
-        {
-            subject:"Matematyka",
-            time:"08:50",
-            end:"09:35",
-            room:"112"
-        },
-
-        {
-            subject:"Programowanie",
-            time:"09:45",
-            end:"10:30",
-            room:"204"
-        },
-
-        {
-            subject:"Język angielski",
-            time:"10:40",
-            end:"11:25",
-            room:"301"
-        },
-
-        {
-            subject:"Sieci komputerowe",
-            time:"11:35",
-            end:"12:20",
-            room:"204"
-        }
-    ],
+[
+],
 
 
-    /* WTOREK */
+/* WTOREK */
 
-    [
-        {
-            subject:"Język polski",
-            time:"08:00",
-            end:"08:45",
-            room:"105"
-        },
-
-        {
-            subject:"Matematyka",
-            time:"08:50",
-            end:"09:35",
-            room:"112"
-        },
-
-        {
-            subject:"Systemy operacyjne",
-            time:"09:45",
-            end:"10:30",
-            room:"204"
-        },
-
-        {
-            subject:"Język angielski",
-            time:"10:40",
-            end:"11:25",
-            room:"301"
-        }
-    ],
+[
+],
 
 
-    /* ŚRODA */
+/* ŚRODA */
 
-    [
-        {
-            subject:"Programowanie",
-            time:"08:00",
-            end:"08:45",
-            room:"204"
-        },
+[
+    {
+        nr:3,
+        time:"9:10 - 9:55",
+        subject:"Biologia",
+        teacher:"GR",
+        room:"207"
+    },
 
-        {
-            subject:"Historia",
-            time:"08:50",
-            end:"09:35",
-            room:"108"
-        },
+    {
+        nr:4,
+        time:"10:00 - 10:45",
+        subject:"Matematyka",
+        teacher:"WK",
+        room:"205"
+    },
 
-        {
-            subject:"Matematyka",
-            time:"09:45",
-            end:"10:30",
-            room:"112"
-        },
+    {
+        nr:5,
+        time:"11:00 - 11:45",
+        subject:"Geografia",
+        teacher:"KE",
+        room:"301"
+    },
 
-        {
-            subject:"WF",
-            time:"10:40",
-            end:"11:25",
-            room:"HALA"
-        }
-    ],
+    {
+        nr:6,
+        time:"11:50 - 12:35",
+        subject:"Zaj. wych.",
+        teacher:"BR",
+        room:"—"
+    },
 
+    {
+        nr:7,
+        time:"12:40 - 13:25",
+        subject:"Fizyka",
+        teacher:"BŻ",
+        room:"207"
+    },
 
-    /* CZWARTEK */
-
-    [
-        {
-            subject:"Sieci komputerowe",
-            time:"08:00",
-            end:"08:45",
-            room:"204"
-        },
-
-        {
-            subject:"Język angielski",
-            time:"08:50",
-            end:"09:35",
-            room:"301"
-        },
-
-        {
-            subject:"Programowanie",
-            time:"09:45",
-            end:"10:30",
-            room:"204"
-        }
-    ],
+    {
+        nr:8,
+        time:"13:30 - 14:15",
+        subject:"E. obywatel.",
+        teacher:"Bu",
+        room:"111"
+    }
+],
 
 
-    /* PIĄTEK */
+/* CZWARTEK */
 
-    [
-        {
-            subject:"Matematyka",
-            time:"08:00",
-            end:"08:45",
-            room:"112"
-        },
+[
+    {
+        nr:1,
+        time:"7:30 - 8:15",
+        subject:"Prac. adm. sso-1/3",
+        teacher:"SP",
+        room:"37A"
+    },
 
-        {
-            subject:"Informatyka",
-            time:"08:50",
-            end:"09:35",
-            room:"204"
-        },
+    {
+        nr:2,
+        time:"8:20 - 9:05",
+        subject:"Prac. adm. sso-1/3",
+        teacher:"SP",
+        room:"37A"
+    },
 
-        {
-            subject:"WF",
-            time:"09:45",
-            end:"10:30",
-            room:"HALA"
-        }
-    ]
+    {
+        nr:3,
+        time:"9:10 - 9:55",
+        subject:"Prac. adm. sso-1/3",
+        teacher:"SP",
+        room:"37A"
+    },
+
+    {
+        nr:4,
+        time:"10:00 - 10:45",
+        subject:"Prac. adm. sso-1/3",
+        teacher:"SP",
+        room:"37A"
+    },
+
+    {
+        nr:5,
+        time:"11:00 - 11:45",
+        subject:"J. angielski-1/3",
+        teacher:"MS",
+        room:"203"
+    },
+
+    {
+        nr:6,
+        time:"11:50 - 12:35",
+        subject:"Matematyka",
+        teacher:"WK",
+        room:"03"
+    },
+
+    {
+        nr:7,
+        time:"12:40 - 13:25",
+        subject:"Prog. apl. int",
+        teacher:"MB",
+        room:"207"
+    },
+
+    {
+        nr:8,
+        time:"13:30 - 14:15",
+        subject:"Historia",
+        teacher:"WY",
+        room:"019"
+    },
+
+    {
+        nr:9,
+        time:"14:30 - 15:15",
+        subject:"Prac. m. lsk-3/3",
+        teacher:"PA",
+        room:"37A"
+    },
+
+    {
+        nr:10,
+        time:"15:20 - 16:05",
+        subject:"Prac. m. lsk-3/3",
+        teacher:"PA",
+        room:"37A"
+    },
+
+    {
+        nr:11,
+        time:"16:10 - 16:55",
+        subject:"Prac. adm. sso-2/3",
+        teacher:"PA",
+        room:"37A"
+    },
+
+    {
+        nr:12,
+        time:"17:00 - 17:45",
+        subject:"Prac. adm. sso-2/3",
+        teacher:"PA",
+        room:"37A"
+    }
+],
+
+
+/* PIĄTEK */
+
+[
+    {
+        nr:4,
+        time:"10:00 - 10:45",
+        subject:"Prac. adm. bd-2/2",
+        teacher:"TS",
+        room:"37"
+    },
+
+    {
+        nr:5,
+        time:"11:00 - 11:45",
+        subject:"Informatyka-1/2",
+        teacher:"JH",
+        room:"201"
+    },
+
+    {
+        nr:6,
+        time:"11:50 - 12:35",
+        subject:"Informatyka-1/2",
+        teacher:"JH",
+        room:"201"
+    },
+
+    {
+        nr:7,
+        time:"12:40 - 13:25",
+        subject:"J. polski",
+        teacher:"BR",
+        room:"305"
+    },
+
+    {
+        nr:8,
+        time:"13:30 - 14:15",
+        subject:"Matematyka",
+        teacher:"WK",
+        room:"302"
+    },
+
+    {
+        nr:9,
+        time:"14:30 - 15:15",
+        subject:"J. niemiecki-1/2",
+        teacher:"KS",
+        room:"107"
+    },
+
+    {
+        nr:10,
+        time:"15:20 - 16:05",
+        subject:"WF-1/2",
+        teacher:"PS",
+        room:"SGd"
+    },
+
+    {
+        nr:11,
+        time:"16:10 - 16:55",
+        subject:"WF-1/2",
+        teacher:"PS",
+        room:"SGd"
+    }
+]
 
 ];
 
@@ -952,7 +978,9 @@ const plan = [
 let selectedDay = 0;
 
 
-/* ================= DNI ================= */
+/* =========================================
+   NAZWY DNI
+========================================= */
 
 const names = [
     "Niedziela",
@@ -965,38 +993,22 @@ const names = [
 ];
 
 
-/* ================= DATA + ZEGAR ================= */
+/* =========================================
+   DATA + ZEGAR
+========================================= */
 
-function updateDate() {
+function updateDate(){
 
     const d = new Date();
 
+    document.getElementById("today").textContent =
+        "📅 " +
+        names[d.getDay()] +
+        " • " +
+        d.toLocaleDateString("pl-PL");
 
-    /* DZIEŃ + DATA */
-
-    document
-        .getElementById("today")
-        .textContent =
-
-        "📅 "
-        +
-        names[d.getDay()]
-        +
-        " • "
-        +
-        d.toLocaleDateString(
-            "pl-PL"
-        );
-
-
-    /* GODZINA */
-
-    document
-        .getElementById("clock")
-        .textContent =
-
-        "🕐 "
-        +
+    document.getElementById("clock").textContent =
+        "🕐 " +
         d.toLocaleTimeString(
             "pl-PL",
             {
@@ -1005,56 +1017,46 @@ function updateDate() {
                 second:"2-digit"
             }
         );
-
 }
 
 
-/* ================= ZAKŁADKI ================= */
+/* =========================================
+   ZAKŁADKI
+========================================= */
 
-function showTab(tabName,button) {
+function showTab(tabName,button){
 
     document
         .querySelectorAll(".tab-content")
-        .forEach(tab => {
-
-            tab.classList.remove(
-                "active"
-            );
-
+        .forEach(tab=>{
+            tab.classList.remove("active");
         });
-
 
     document
         .querySelectorAll(".tab")
-        .forEach(tab => {
-
-            tab.classList.remove(
-                "active"
-            );
-
+        .forEach(tab=>{
+            tab.classList.remove("active");
         });
-
 
     document
         .getElementById(tabName)
         .classList.add("active");
 
-
     button.classList.add("active");
-
 }
 
 
-/* ================= WYBÓR DNIA ================= */
+/* =========================================
+   WYBÓR DNIA
+========================================= */
 
-function selectDay(day) {
+function selectDay(day){
 
     selectedDay = day;
 
-
     document
         .querySelectorAll(".day")
-        .forEach((x,i) => {
+        .forEach((x,i)=>{
 
             x.classList.toggle(
                 "active",
@@ -1063,277 +1065,243 @@ function selectDay(day) {
 
         });
 
-
     render();
-
 }
 
 
-/* ================= RENDER PLANU ================= */
+/* =========================================
+   RENDER
+========================================= */
 
-function render() {
+function render(){
 
     const box =
-        document.getElementById(
-            "schedule"
-        );
-
+        document.getElementById("schedule");
 
     box.innerHTML = "";
 
+    if(plan[selectedDay].length === 0){
 
-    plan[selectedDay].forEach(
-        (lesson,index) => {
-
-            const div =
-                document.createElement(
-                    "div"
-                );
-
-
-            div.className =
-                "lesson";
-
-
-            div.innerHTML = `
-
-                <div class="time">
-                    ${lesson.time}
-                </div>
-
+        box.innerHTML = `
+            <div class="lesson">
+                <div class="number">—</div>
+                <div class="time">—</div>
                 <div class="subject">
-                    ${lesson.subject}
+                    Brak lekcji
                 </div>
-
                 <div class="room">
-                    SALA ${lesson.room}
+                    —
                 </div>
+            </div>
+        `;
 
-            `;
+        return;
+    }
 
 
-            box.appendChild(div);
+    plan[selectedDay].forEach(lesson=>{
 
-        }
-    );
+        const div =
+            document.createElement("div");
 
+        div.className = "lesson";
+
+        div.dataset.index =
+            plan[selectedDay].indexOf(lesson);
+
+        div.innerHTML = `
+
+            <div class="number">
+                #${lesson.nr}
+            </div>
+
+            <div class="time">
+                ${lesson.time}
+            </div>
+
+            <div class="subject">
+                ${lesson.subject}
+
+                <div class="teacher">
+                    ${lesson.teacher}
+                </div>
+            </div>
+
+            <div class="room">
+                ${lesson.room !== "—"
+                    ? "SALA " + lesson.room
+                    : "—"}
+            </div>
+
+        `;
+
+        box.appendChild(div);
+
+    });
 
     updateCurrent();
-
 }
 
 
-/* ================= AKTUALNA LEKCJA ================= */
+/* =========================================
+   AKTUALNA LEKCJA
+========================================= */
 
-function updateCurrent() {
+function updateCurrent(){
 
-    const now =
-        new Date();
+    const now = new Date();
+
+    const day = now.getDay();
+
+    if(day < 1 || day > 5){
+
+        document.getElementById("current")
+            .textContent = "Weekend";
+
+        document.getElementById("next")
+            .textContent = "—";
+
+        document.getElementById("timer")
+            .textContent = "—";
+
+        return;
+    }
 
 
-    const day =
-        now.getDay();
+    const todayPlan =
+        plan[day - 1];
+
+    const currentMinutes =
+        now.getHours() * 60 +
+        now.getMinutes();
 
 
     let currentIndex = -1;
 
 
-    if(day >= 1 && day <= 5) {
+    todayPlan.forEach((lesson,index)=>{
 
-        const todayPlan =
-            plan[day - 1];
+        const times =
+            lesson.time
+                .replace(" ","")
+                .split("-");
 
+        const start =
+            times[0].split(":");
 
-        const currentMinutes =
-            now.getHours() * 60
-            +
-            now.getMinutes();
-
-
-        todayPlan.forEach(
-            (lesson,index) => {
-
-                const [sh,sm] =
-                    lesson.time
-                    .split(":")
-                    .map(Number);
+        const end =
+            times[1].split(":");
 
 
-                const [eh,em] =
-                    lesson.end
-                    .split(":")
-                    .map(Number);
+        const startMinutes =
+            Number(start[0]) * 60 +
+            Number(start[1]);
 
+        const endMinutes =
+            Number(end[0]) * 60 +
+            Number(end[1]);
 
-                const start =
-                    sh * 60 + sm;
-
-
-                const end =
-                    eh * 60 + em;
-
-
-                if(
-                    currentMinutes >= start
-                    &&
-                    currentMinutes < end
-                ) {
-
-                    currentIndex =
-                        index;
-
-                }
-
-            }
-        );
-
-
-        /* PODŚWIETLENIE */
 
         if(
-            selectedDay === day - 1
-        ) {
+            currentMinutes >= startMinutes &&
+            currentMinutes < endMinutes
+        ){
 
-            document
-                .querySelectorAll(
-                    ".lesson"
-                )
-                .forEach((x,i) => {
-
-                    x.classList.toggle(
-                        "current",
-                        i === currentIndex
-                    );
-
-                });
+            currentIndex = index;
 
         }
 
-
-        /* AKTUALNA */
-
-        if(currentIndex >= 0) {
-
-            const lesson =
-                todayPlan[currentIndex];
+    });
 
 
-            document
-                .getElementById(
-                    "current"
-                )
-                .textContent =
-                lesson.subject;
+    /* PODŚWIETLENIE */
 
+    if(selectedDay === day - 1){
 
-            const next =
-                todayPlan[
-                    currentIndex + 1
-                ];
+        document
+            .querySelectorAll(".lesson")
+            .forEach((x,i)=>{
 
+                x.classList.toggle(
+                    "current",
+                    i === currentIndex
+                );
 
-            document
-                .getElementById(
-                    "next"
-                )
-                .textContent =
-
-                next
-                ?
-                next.subject
-                :
-                "Koniec zajęć";
-
-
-            updateTimer(lesson);
-
-        }
-
-        else {
-
-            document
-                .getElementById(
-                    "current"
-                )
-                .textContent =
-                "Brak lekcji";
-
-
-            document
-                .getElementById(
-                    "next"
-                )
-                .textContent =
-
-                todayPlan[0]
-                ?
-                todayPlan[0].subject
-                :
-                "—";
-
-
-            document
-                .getElementById(
-                    "timer"
-                )
-                .textContent =
-                "—";
-
-        }
+            });
 
     }
 
-    else {
 
-        document
-            .getElementById(
-                "current"
-            )
+    /* AKTUALNA */
+
+    if(currentIndex >= 0){
+
+        const lesson =
+            todayPlan[currentIndex];
+
+        document.getElementById("current")
             .textContent =
-            "Weekend";
+            lesson.subject;
 
 
-        document
-            .getElementById(
-                "next"
-            )
+        const next =
+            todayPlan[currentIndex + 1];
+
+        document.getElementById("next")
             .textContent =
-            "—";
+            next
+            ? next.subject
+            : "Koniec zajęć";
 
 
-        document
-            .getElementById(
-                "timer"
-            )
-            .textContent =
-            "—";
+        updateTimer(lesson);
 
     }
 
+    else{
+
+        document.getElementById("current")
+            .textContent =
+            "Brak lekcji";
+
+
+        document.getElementById("next")
+            .textContent =
+            todayPlan.length > 0
+            ? todayPlan[0].subject
+            : "—";
+
+
+        document.getElementById("timer")
+            .textContent = "—";
+
+    }
 }
 
 
-/* ================= TIMER ================= */
+/* =========================================
+   TIMER
+========================================= */
 
-function updateTimer(lesson) {
+function updateTimer(lesson){
 
-    const now =
-        new Date();
+    const now = new Date();
 
-
-    const [h,m] =
-        lesson.end
-        .split(":")
-        .map(Number);
-
+    const times =
+        lesson.time
+            .replace(" ","")
+            .split("-");
 
     const end =
+        times[1].split(":");
+
+
+    const endTime =
         new Date();
 
-
-    end.setHours(
-        h,
-        m,
+    endTime.setHours(
+        Number(end[0]),
+        Number(end[1]),
         0,
         0
     );
@@ -1343,54 +1311,58 @@ function updateTimer(lesson) {
         Math.max(
             0,
             Math.floor(
-                (end - now) / 1000
+                (endTime - now) / 1000
             )
         );
 
 
     const min =
-        Math.floor(
-            seconds / 60
-        );
-
+        Math.floor(seconds / 60);
 
     const sec =
         seconds % 60;
 
 
-    document
-        .getElementById(
-            "timer"
-        )
+    document.getElementById("timer")
         .textContent =
 
-        String(min)
-            .padStart(2,"0")
+        String(min).padStart(2,"0")
         +
         ":"
         +
-        String(sec)
-            .padStart(2,"0");
-
+        String(sec).padStart(2,"0");
 }
 
 
-/* ================= START ================= */
+/* =========================================
+   START
+========================================= */
 
 updateDate();
 
-selectDay(0);
+/*
+   Automatycznie wybierz dzisiejszy dzień.
+   Jeśli jest weekend → poniedziałek.
+*/
 
+const today =
+    new Date().getDay();
 
-/* ZEGAR AKTUALIZUJE SIĘ CO SEKUNDĘ */
+if(today >= 1 && today <= 5){
+
+    selectDay(today - 1);
+
+}else{
+
+    selectDay(0);
+
+}
+
 
 setInterval(
     updateDate,
     1000
 );
-
-
-/* AKTUALNA LEKCJA + TIMER */
 
 setInterval(
     updateCurrent,
